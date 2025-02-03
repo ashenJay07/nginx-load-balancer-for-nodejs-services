@@ -4,16 +4,22 @@ services:
   node-app-1:
     build: ./server
     container_name: node-app-1
+    environment:
+      - INSTANCE=NODE-APP-1
     ports:
       - "3001:3000"
   node-app-2:
     build: ./server
     container_name: node-app-2
+    environment:
+      - INSTANCE=NODE-APP-2
     ports:
       - "3002:3000"
   node-app-3:
     build: ./server
     container_name: node-app-3
+    environment:
+      - INSTANCE=NODE-APP-3
     ports:
       - "3003:3000"
   nginx:
