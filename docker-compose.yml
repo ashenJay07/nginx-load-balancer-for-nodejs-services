@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  node-app-1:
+    build: ./server
+    container_name: node-app-1
+    ports:
+      - "3001:3000"
+  node-app-2:
+    build: ./server
+    container_name: node-app-2
+    ports:
+      - "3002:3000"
+  node-app-3:
+    build: ./server
+    container_name: node-app-3
+    ports:
+      - "3003:3000"
+  nginx:
+    build: ./nginx
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - node-app-1
+      - node-app-2
+      - node-app-3
